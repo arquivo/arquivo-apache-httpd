@@ -4,7 +4,7 @@
 #
 # The base image is pinned by digest, on both stages (Dependabot only updates FROM lines
 # and proposes the version/digest bumps).
-FROM httpd:2.4.69-trixie@sha256:c842ac797bd1fe8b3cd26d002ac9d948aa2814097544600600b35aef42e6785a AS build
+FROM httpd:2.4.70-trixie@sha256:f243c844139c880ddfe575049499ee5f0bf74ebacef7ef6ebbdeefeebd94917e AS build
 
 ARG MOD_QOS_VERSION=11.79
 ARG MOD_QOS_SHA256=314a60638be42203cd0ed6ed1fe22085c082919545561387db4e7cb35594d755
@@ -45,7 +45,7 @@ RUN curl -fsSLo mod_maxminddb.tar.gz "https://github.com/maxmind/mod_maxminddb/r
     && install -m 755 .libs/mod_maxminddb.so /build/mod_maxminddb.so
 
 
-FROM httpd:2.4.69-trixie@sha256:c842ac797bd1fe8b3cd26d002ac9d948aa2814097544600600b35aef42e6785a
+FROM httpd:2.4.70-trixie@sha256:f243c844139c880ddfe575049499ee5f0bf74ebacef7ef6ebbdeefeebd94917e
 
 # libmaxminddb0 is required by mod_maxminddb (libcrypto, used by mod_qos, is already present).
 # python3-minimal runs the url_escape.py RewriteMap program of the Arquivo.pt configuration.
